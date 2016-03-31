@@ -1,0 +1,9 @@
+{
+  "name": "eZ Varnish VCS LiveViewer",
+  "version": "0.0.1",
+  "dependencies": {
+    "d3": "^3.5.16",
+    "requirejs": "^2.2.0",
+    "jquery": "^2.2.2"
+  }
+}
