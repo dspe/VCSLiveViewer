@@ -11,4 +11,4 @@ Tutorial
 
 [French version](doc/fr/main.md)
 
-![alt text](./doc/assets/lieveviewer.png "Liveviewr")
+![alt text](doc/assets/liveviewer.png "Liveviewr")
