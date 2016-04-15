@@ -13,4 +13,4 @@ Afin de récupérer les données de statistiques pour notre application JavaScri
 
 ![alt text](../assets/vcs_example.png "VCS Json example")
 
-Aller à la [Mise en place du LiveViewver](d3.md)
+Aller à la [Mise en place du LiveViewer](d3.md)

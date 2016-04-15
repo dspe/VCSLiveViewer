@@ -1,7 +1,7 @@
 Tutoriel
 ========
 
-Vous trouverez dans ce document la mise en place et l'implémentation du Live Viewver
+Vous trouverez dans ce document la mise en place et l'implémentation du Live Viewer
 avec Varnish Custom Statistic.
 
 Pré-requis
@@ -19,6 +19,6 @@ Afin de visualiser en temps réel (ou proche pour la démo) des contenus provena
 1. [Configuration d'eZ Platform/eZ Studio](ez.md)
 2. [Configuration de Varnish](varnish.md)
 3. [Configuration de VCS](vcs.md)
-4. [Mise en place du LiveViewver](d3.md)
+4. [Mise en place du LiveViewer](d3.md)
 
 [!alt text](./assets/lieveviewer.png)
