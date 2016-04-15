@@ -11,4 +11,4 @@ Tutorial
 
 [French version](doc/fr/main.md)
 
-![alt text](./assets/lieveviewer.png)
+![alt text](./doc/assets/lieveviewer.png)
