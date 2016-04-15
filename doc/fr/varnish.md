@@ -32,4 +32,5 @@ Le code vérifie que le header ```x-vcs``` existe afin de logger une clé ```vcs
 
 Et voilà la configuration est également terminée pour Varnish.
 
-    Aller à la [Configuration de VCS](vcs.md)
+
+Aller à la [Configuration de VCS](vcs.md)

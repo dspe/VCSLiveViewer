@@ -47,4 +47,4 @@ Comme vous pouvez le noter, nous renvoyons 3 headers: ```X-VCS```, ```X-VCS-Imag
 Vous avez terminé pour la partie eZ.
 
 
-    Allez à la [Configuration de Varnish](varnish.md)
+Allez à la [Configuration de Varnish](varnish.md)
