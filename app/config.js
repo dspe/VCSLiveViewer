@@ -25,7 +25,7 @@ require(['d3', 'jquery'], function (d3, $) {
 
     var treemap = d3.layout.treemap()
             .size([width, height])
-            .sticky(false)
+            .sticky(true)
             .value(function(d) { return d.score; });
 
     // Node-positioning function
@@ -38,7 +38,7 @@ require(['d3', 'jquery'], function (d3, $) {
 
     // Set background-image based on data
     var getBackgroundStyle = function(d) {
-        return d.children ? null : 'url(' + d.image + ')';
+        return d.children ? null : 'url(' + d.image + ')';//' no-reapeat ' + d.x + 'px ' + d.dy + 'px';//no-repeat center center';
     };
 
     getData();
@@ -58,21 +58,25 @@ require(['d3', 'jquery'], function (d3, $) {
                 for (var key in json) {
                     var title = key.split("@")[0].substring(4);
                     var image = key.split("@")[1];
+                    var url   = key.split("@")[2];
                     var score = json[key];
 
-                    tree.children.push( {"id": window.btoa(unescape(encodeURIComponent(title))), "title": title, "image": image, "score": score } );
+                    tree.children.push( {"id": window.btoa(unescape(encodeURIComponent(title))), "title": title, "image": image, "score": score, "url": url } );
                 }
+
+                var nodes_filter = treemap.nodes(tree).filter(function(d) { return !d.children; })
 
                 // Select all nodes, join data on id
                 var nodes = div.datum(tree)
                         .selectAll(".node")
-                        .data(treemap.nodes, function(d) { return d.id; });
+                        .data(nodes_filter, function(d) { return d.id; });
 
                 // On new nodes ...
                 nodes.enter().append('a')
                     .attr("class", "node")
-                    //.attr('href', function(d) { return d.url; })
-                    .style('background', getBackgroundStyle)
+                    .attr('href', function(d) { return d.url; })
+                    .style('background-image', getBackgroundStyle)
+                    //.style('background-size', '100% 100% !important')
                     .style("font-size", function(d) {
                           // compute font size based on sqrt(area)
                           return Math.max(20, 0.18*Math.sqrt(d.area))+'px'; })
@@ -82,7 +86,8 @@ require(['d3', 'jquery'], function (d3, $) {
                 nodes.exit().remove();
 
                 nodes
-                    .style('background', getBackgroundStyle)
+                    .style('background-image', getBackgroundStyle)
+                    //.style('background-size', '100% 100% !important')
                     .style("font-size", function(d) {
                           // compute font size based on sqrt(area)
                           return Math.max(20, 0.18*Math.sqrt(d.area))+'px'; })
@@ -91,6 +96,27 @@ require(['d3', 'jquery'], function (d3, $) {
                     .text(function(d) { return d.title } )
                     .call(position);
 
+                $('.node').each(function(index, value) {
+                    var url = $(this).css('background-image');
+                    url = url.substring(5, url.length - 2);
+
+                    var nodeWidth = $(this).width();
+                    var nodeHeight = $(this).height();
+                    var niark = $(this);
+                    var img = new Image();
+                    img.src = url;
+                    img.onload = function() {
+                        var width = nodeWidth;
+                        var height = nodeWidth * (this.height / this.width);
+
+                        if ( (nodeWidth/nodeHeight) > (this.width/this.height) ) {
+                            niark.css('background-size', width + 'px ' + height + 'px ');
+                        } else {
+                            niark.css('background-size', 'auto ' + nodeHeight + 'px');
+                            niark.css('background-position', 'center');
+                        }
+                    }
+                });
             },
             error: function(e) {
                 console.log(e.message);
