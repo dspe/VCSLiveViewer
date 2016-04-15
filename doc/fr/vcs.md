@@ -11,6 +11,6 @@ Pas grand chose de plus à rajouter; en effet VCS récupère et traite automatiq
 
 Afin de récupérer les données de statistiques pour notre application JavaScript, nous allons les récupérer via l'URL du type ```http://example.com:6555/match/%5EART-/top/100?b=100```
 
-![alt text](assets/vcs_example.png "VCS Json example")
+![alt text](../assets/vcs_example.png "VCS Json example")
 
 Aller à la [Mise en place du LiveViewver](d3.md)
