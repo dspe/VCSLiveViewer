@@ -113,8 +113,8 @@ require(['d3', 'jquery'], function (d3, $) {
                             niark.css('background-size', width + 'px ' + height + 'px ');
                         } else {
                             niark.css('background-size', 'auto ' + nodeHeight + 'px');
-                            niark.css('background-position', 'center');
                         }
+                        niark.css('background-position', 'center');
                     }
                 });
             },
